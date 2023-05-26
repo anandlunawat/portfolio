@@ -1,0 +1,50 @@
+.animated {
+    position: relative;
+    width: 250px;
+    z-index: 20;
+}
+
+.animated::before
+    {
+        content: "";
+        position: absolute;
+        transition: 0.5s;
+        z-index: 20;
+        background: linear-gradient(142deg,#00b381,transparent,transparent,transparent,transparent,#00b381);
+    }
+
+.animated::after {
+    content: "";
+    position: absolute;
+    transition: 0.5s;
+    /* z-index: 20; */
+    background: linear-gradient(142deg,#00b381,transparent,transparent,transparent,transparent,#00b381);
+}
+
+.animated::before{
+    inset: -3px;
+    /* z-index: 20; */
+}
+
+.animated::after{
+    inset: -3px;
+    filter: blur(10px);
+    /* z-index: 20; */
+}
+
+.animated span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 20;
+    width: 100%;
+    height: 100%;
+    /* display: inline-block; */
+    background-color: #01100c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+  
+  
