@@ -1,13 +1,14 @@
 import { MdOutlineKeyboardArrowUp } from 'react-icons/md'
 import { BsDot } from 'react-icons/bs'
 
-export default function SideNav({ skillsTop }: { skillsTop: number }) {
+export default function SideNav() {
     return (
         <div className='max-lg:hidden fixed top-[20%] right-0 m-4 z-30'>
             <div className="flex flex-col text-[#00b381] gap-4 text-4xl text-center">
                 <button onClick={()=>{window.scrollTo({top: 0})}} className="z-10 hover:bg-gradient-to-b from-[#00b381] to-[#00b381] hover:blur-2xl"><BsDot /></button>
                 {/* <a href="/" className=""><BsDot /></a> */}
-                <button onClick={()=>{window.scrollTo({top: skillsTop})}} className="z-10 hover:bg-gradient-to-b from-[#00b381] to-[#00b381] hover:blur-2xl"><BsDot /></button>
+                {/* <button onClick={()=>{window.scrollTo({top: skillsTop})}} className="z-10 hover:bg-gradient-to-b from-[#00b381] to-[#00b381] hover:blur-2xl"><BsDot /></button> */}
+                <button className="z-10 hover:bg-gradient-to-b from-[#00b381] to-[#00b381] hover:blur-2xl"><BsDot /></button>
                 <a href="/" className="z-10 hover:bg-gradient-to-b from-[#00b381] to-[#00b381] hover:blur-2xl"><BsDot /></a>
                 <a href="/" className="z-10 hover:bg-gradient-to-b from-[#00b381] to-[#00b381] hover:blur-2xl"><BsDot /></a>
                 <a className='flex flex-col mt-6 text-center gap-14'>

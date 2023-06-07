@@ -1,5 +1,10 @@
-body {
+  html, body {
     overflow: hidden;
+    width: 100vw;
+  }
+  
+  .scroll-animation {
+    transition: transform 0.5s linear;
   }
   
   /* Optional: This ensures the page doesn't shift when the scrollbar disappears */
