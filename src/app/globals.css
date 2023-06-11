@@ -6,7 +6,3 @@ body {
   background-color: #01100c;
   color: white;
 }
-
-html {
-  scroll-behavior: auto;
-}

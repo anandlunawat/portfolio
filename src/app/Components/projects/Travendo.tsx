@@ -1,4 +1,3 @@
-// export default function Travendo({travendo} : {travendo : boolean}) {
 export default function Travendo() {
 
     return (

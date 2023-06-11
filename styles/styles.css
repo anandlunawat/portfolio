@@ -1,11 +1,16 @@
-  html, body {
+  /* html, body {
     overflow: hidden;
     width: 100vw;
-  }
+  } */
   
-  .scroll-animation {
-    transition: transform 0.5s linear;
+  body {
+    background-color: #f1f1f189;
+    color: #09099f;
   }
+/* 
+  .scroll-animation {
+    animation: name duration timing-function delay iteration-count direction fill-mode;
+  } */
   
   /* Optional: This ensures the page doesn't shift when the scrollbar disappears */
   body::-webkit-scrollbar {

@@ -1,3 +1,5 @@
+import ThreeJs from "../ThreeJs";
+
 export default function Pulzion() {
 
     return (
@@ -7,6 +9,8 @@ export default function Pulzion() {
                 <span className="text-5xl">Pulzion</span>
                 <span className="text-xl">Online platform for handling Pulzion Events.</span>
             </div>
+            <ThreeJs />
+            {/* <img src="/pulzion.png" className="absolute w-[25vw] left-[54%] h-[52vh] p-2"/> */}
         </div>
     )
 }
