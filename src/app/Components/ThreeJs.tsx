@@ -52,15 +52,27 @@ const ThreeJs = () => {
             laptopScreen.position.set(-0.1, 1.7, 2);
             rightMesh.add(laptopScreen);
 
-            const rightStrip = new THREE.BoxGeometry(2.8, 1.8, 0.2)
+            const rightStrip = new THREE.BoxGeometry(2.8, 1.65, 0.2)
             const textureMaterial = new THREE.TextureLoader().load("/pulzion.png")
             const rightStripMaterial = new THREE.MeshBasicMaterial({ map: textureMaterial })
             const stripMesh = new THREE.Mesh(rightStrip, rightStripMaterial)
             stripMesh.position.set(0, 0.05, 0)
             laptopScreen.add(stripMesh)
 
+            const cone = new THREE.ConeGeometry(0.5,0.8,32,1,true)
+            const coneMaterial = new THREE.MeshBasicMaterial({ color: 0x09099f, side: THREE.DoubleSide })
+            const object = new THREE.Mesh(cone,coneMaterial)
+            object.position.set(-0.1,1,0)
+            laptopScreen.add(object)
+            
+            // const cone1 = new THREE.ConeGeometry(1,2,32,1,true)
+            // const coneMaterial1 = new THREE.MeshBasicMaterial({ color: 0x09099f, side: THREE.DoubleSide })
+            // const object1 = new THREE.Mesh(cone1,coneMaterial1)
+            // // object1.position.set(-10,-10,-2.2)
+            // object.add(object1)
+
             const keyboardGeometry = new THREE.BoxGeometry(2.8, 0.05, 0.7);
-            const keyboardMaterial = new THREE.MeshBasicMaterial({ color: 0x5A5A5A });
+            const keyboardMaterial = new THREE.MeshBasicMaterial({ color: 0xC0C0C0 });
             const keyboard = new THREE.Mesh(keyboardGeometry, keyboardMaterial);
             keyboard.position.set(-0.017, -0.9 , 0.5);
             laptopScreen.add(keyboard);
@@ -71,27 +83,27 @@ const ThreeJs = () => {
             layerMesh.position.set(0,-0.87,0)
             laptopScreen.add(layerMesh)
 
-            const touchpad = new THREE.BoxGeometry(0.4,0.02,0.2)
-            const touchpadMaterial = new THREE.MeshBasicMaterial({color : 0x0000000})
+            const touchpad = new THREE.BoxGeometry(0.4,0.008,0.2)
+            const touchpadMaterial = new THREE.MeshBasicMaterial({color : 0x5A5A5A})
             const touchpadMesh = new THREE.Mesh(touchpad,touchpadMaterial)
             touchpadMesh.position.set(-0.09,0.24,0.95)
             keyboard.add(touchpadMesh)
 
-            // const buttonWidth = 0.1;
-            // const buttonHeight = 0.10;
-            // const buttonDepth = 0.01;
-            // const buttonCount = 11;
+            const buttonWidth = 0.1;
+            const buttonHeight = 0.10;
+            const buttonDepth = 0.01;
+            const buttonCount = 11;
             
-            // // Create button geometry and material
-            // const buttonGeometry = new THREE.BoxGeometry(buttonWidth, buttonHeight, buttonDepth);
-            // const buttonMaterial = new THREE.MeshBasicMaterial({ color: 0x000000 }); // Customize the color as needed
+            // Create button geometry and material
+            const buttonGeometry = new THREE.BoxGeometry(buttonWidth, buttonHeight, buttonDepth);
+            const buttonMaterial = new THREE.MeshBasicMaterial({ color: 0x000000 }); // Customize the color as needed
             
-            // // Create buttons and position them on the keyboard
-            // for (let i = 0; i < buttonCount; i++) {
-            //   const button = new THREE.Mesh(buttonGeometry, buttonMaterial);
-            //   button.position.set(-1 + i * 0.2, 0, 0);
-            //   keyboard.add(button);
-            // }                
+            // Create buttons and position them on the keyboard
+            for (let i = 0; i < buttonCount; i++) {
+              const button = new THREE.Mesh(buttonGeometry, buttonMaterial);
+              button.position.set(-1 + i * 0.2, 0, 0);
+              keyboard.add(button);
+            }                
             // for (let i = 0; i < buttonCount; i++) {
             //   const button = new THREE.Mesh(buttonGeometry, buttonMaterial);
             //   button.position.set(-1 + i * 0.2, 0, 10);

@@ -6,7 +6,10 @@ import Navbar from "./Components/Navbar";
 import SideNav from "./Components/SideNav";
 import Skills from "./Components/Skills";
 import Project from "./Components/Projects";
-import * as image from '.../public/background.jpg'
+import Pulzion from './Components/projects/Pulzion';
+import Travendo from './Components/projects/Travendo';
+import Experience from './Components/Experience';
+import {BiArrowToBottom} from "react-icons/bi"
 
 export default function Home() {
   const pageRef = useRef<HTMLDivElement>(null);
@@ -33,15 +36,34 @@ export default function Home() {
           setDisableScroll(true)  
           container?.removeEventListener("wheel",handleScroll)                
         } else if (state === "skills" && !disableScroll) {
-          setState("projects")  
-          document.querySelector("body")!.style.overflow = "auto"        
+          setState("projects")                  
           window.history.pushState({key:"projects"},'','#projects')    
           setDisableScroll(true)         
           container?.removeEventListener("wheel",handleScroll)                
-        } 
+        } else if(state === "projects" && !disableScroll) {
+          setState("pulzion")
+          window.history.pushState({key:"pulzion"},'','#pulzion')    
+          setDisableScroll(true)     
+        } else if(state === "pulzion" && !disableScroll) {
+          setState("travendo")
+          window.history.pushState({key:"travendo"},'','#travendo')    
+          setDisableScroll(true)     
+        } else if(state === "travendo") {
+          setState("experience")
+          window.history.pushState({key:"experience"},'','#experience')    
+          setDisableScroll(true)     
+        }
       } else if (deltaY < 0) {
-        if (state === "projects" && !disableScroll) {
-          document.querySelector("body")!.style.overflow="hidden"
+        if(state === "experience") {
+          setState("travendo")
+          setDisableScroll(true)
+        } else if(state === "travendo") {
+          setState("pulzion")
+          setDisableScroll(true)
+        } else if(state === "pulzion") {
+          setState("projects")
+          setDisableScroll(true)
+        } else if (state === "projects" && !disableScroll) {
           setState("skills");
           setDisableScroll(true)
         } else if (state === "skills" && !disableScroll) {
@@ -51,19 +73,18 @@ export default function Home() {
       }
 
       setDisableScroll(true)
-
-      setTimeout(() => {
+      
+      setInterval(() => {
         setDisableScroll(false);               
       }, 1000);
     };
 
-    const handlePopState = (event: PopStateEvent) => {
-      console.log("state", event.state);
-    };
+    // const handlePopState = (event: PopStateEvent) => {
+    //   console.log("state", event.state);
+    // };
 
     if (container) {
-      container.addEventListener("wheel", handleScroll, { passive: false });
-      window.addEventListener("popstate", handlePopState);
+      container.addEventListener("wheel", handleScroll, { passive: false });      
     }
 
     return () => {
@@ -72,16 +93,15 @@ export default function Home() {
       }
     };
   }, [disableScroll]);
-
+  
   return (
-    <div className="h-[200vh]">
+    <div className="h-[100vh]">
       <div className="">
         <Navbar />
         <SideNav />        
         <div ref={pageRef}>
           {state === "page" ? (
-            <div>
-              {/* <div className="flex lg:flex-row flex-col items-center justify-center before:absolute before:bg-gradient-to-br from-black max-lg:before:top-2 before:h-[100vh] before:z-10 before:inset-0 h-[85vh] gap-0 m-4"> */}
+            <div>              
               <div className="flex lg:flex-row flex-col items-center justify-center h-[85vh] gap-0 m-4">
                 <div className="z-20 flex flex-col items-center justify-center gap-8 basis-1/2">
                   <span className="text-2xl whitespace-pre max-lg:font-bold lg:text-7xl">ANAND LUNAWAT</span>
@@ -92,12 +112,14 @@ export default function Home() {
             </div>
           ) : state === "skills" ? (
             <Skills />
-          ) : (
+          ) : state === "projects" ? <Project /> : state === "pulzion" ? <Pulzion /> : state === "travendo" ? <Travendo /> : state === "experience" ? <Experience /> : (
             <></>
           )}
         </div>        
       </div>
-      <Project />
+      <div className='fixed p-2 text-4xl bottom-4 left-4 border-[2px] border-[#09099f] rounded-full'>
+        <BiArrowToBottom />
+      </div>
     </div>
   );
 }

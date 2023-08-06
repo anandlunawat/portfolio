@@ -1,4 +1,5 @@
 import ThreeJs from "../ThreeJs";
+import { MdKeyboardArrowRight } from "react-icons/md";
 
 export default function Pulzion() {
 
@@ -8,6 +9,8 @@ export default function Pulzion() {
                 <span>EMS Web App</span>
                 <span className="text-5xl">Pulzion</span>
                 <span className="text-xl">Online platform for handling Pulzion Events.</span>
+                <span className="text-xl font-bold">Built with :<span className="font-normal"> Next, Tailwind, ThreeJS, Node and Express</span></span>
+                <a className="flex items-center gap-2 mt-8 text-xl font-bold" href="https://pulzion.co.in/">Visit the app <MdKeyboardArrowRight /></a>
             </div>
             <ThreeJs />
             {/* <img src="/pulzion.png" className="absolute w-[25vw] left-[54%] h-[52vh] p-2"/> */}
